@@ -6,6 +6,8 @@ class Parser:
     """
     Parse the string payload and generate users
     """
+
+    # generates a list of users from a json payload
     def generate_users(payload: json) -> list:
         userList = []
 
