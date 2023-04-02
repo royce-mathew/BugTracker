@@ -9,8 +9,9 @@ setup:
 .PHONY: run
 run:
 	@echo "Compiling Java Code"
-	@javac -target 11 -cp venv/share/py4j/py4j0.10.9.7.jar:. JavaApplication.java
-	@echo "Running Java Gateway"
-	@java -cp venv/share/py4j/py4j0.10.9.7.jar:. JavaApplication &
-	@echo "Running Python Backend"
+	@javac -target 11 -cp venv/share/py4j/py4j0.10.9.7.jar:. Java/JavaApplication.java
+	@echo "Running Java Application"
+	@java -cp venv/share/py4j/py4j0.10.9.7.jar:. Java/JavaApplication &
+	@echo "Running Python Backend\n==============================="
 	@venv/bin/python main.py
+	@echo "Gateway Server Shutdown"

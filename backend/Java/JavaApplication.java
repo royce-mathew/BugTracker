@@ -1,3 +1,4 @@
+package Java;
 import py4j.GatewayServer;
 
 public class JavaApplication {
@@ -14,11 +15,10 @@ public class JavaApplication {
         System.out.println("Gateway Server Started");
     }
 
-
-    public static void stop() {
-        if (gatewayServer != null) {
-            gatewayServer.shutdown();
-            System.out.println("Gateway Server Stopped");
-        }
-    }
+    // public static void stop() {
+    //     if (gatewayServer != null) {
+    //         gatewayServer.shutdown();
+    //         System.out.println("Gateway Server Stopped");
+    //     }
+    // }
 }
