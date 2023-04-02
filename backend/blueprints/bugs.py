@@ -3,16 +3,16 @@ import json
 # Initialize Database Here
 
 def init_blueprint(gateway):
-    blueprint = Blueprint("repositories", __name__)
+    blueprint = Blueprint("bugs", __name__)
 
     # Get List of Repsitories
-    @blueprint.route("/repositories/", method=["GET"])
+    @blueprint.route("/bugs/", method=["GET"])
     def index():
         username = request.args.get("username")
-        print("Listing repositories for user")
+        print("Listing bugs")
     
     # Create a new Repository
-    @blueprint.route("/repositories/create", methods=["POST"])
+    @blueprint.route("/bugs/create", methods=["POST"])
     def index2():
         # Get Username from args
         username = request.args.get("username")
