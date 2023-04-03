@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,16 +13,15 @@ function Main() {
 
     const sendData = (event) => {
         event.preventDefault();
-        fetch('http://127.0.0.1:5000/api/bugs/create', {
+        fetch('http://127.0.0.1:5000/bugs/create', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ user: user, description: description })
+            body: JSON.stringify({ user: user, description: description }),
+            // credentials: 'include'
         })
-        .then(console.log("done"))
-        .then(response => console.log(response))
-        // .then(response => response.json())
-        // .then(data => console.log(data))
-        // .catch(error => console.error(error))
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error(error))
     };
 
     return (
@@ -91,5 +90,5 @@ function Main() {
         </>
     );
 }
- 
+
 export default Main;
