@@ -6,12 +6,12 @@ from data.database import *
 def init_blueprint(gateway):
     blueprint = Blueprint("bugs", __name__)
 
-    # Get List of Repsitories
+    # Get List of Bugs
     @blueprint.route("/bugs/", methods=["GET"])
     def index():
         return get_data(), 200
     
-    # Create a new Repository
+    # Create a new Bug
     @blueprint.route("/bugs/create", methods=["POST"])
     def index2():
         # Load request body data
@@ -38,12 +38,15 @@ def init_blueprint(gateway):
         json_data = json.loads(json_string)
 
         database = get_data()
-        database[bug_id]["comments"].append({
-            "username": json_data["username"],
-            "title": json_data["title"],
-            "description": json_data["description"]
-        })
-        set_data(database)
+        if database[bug_id]:
+            database[bug_id]["comments"].append({
+                "username": json_data["username"],
+                "title": json_data["title"],
+                "description": json_data["description"]
+            })
+            set_data(database)
+            return "Ok", 200
+        return "Error", 400
 
     return blueprint
 

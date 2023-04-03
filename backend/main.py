@@ -6,7 +6,7 @@ import importlib
 # Initialize a new Flask Application
 app = Flask(__name__)
 
-@app.route(f"/api/")
+@app.route(f"/")
 def index():
     print(f"Recieved Request on /api")
     return "Ok", 200
