@@ -5,11 +5,26 @@ import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Drawer from '@mui/material/Drawer';
 import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
 import { ListItemButton, ListItemText } from "@mui/material";
 
-class Main extends Component {
-  render() {
+function Main() {
+    const [user, setUser] = useState('user1')
+    const [description, setDescription] = useState('');
+
+    const sendData = (event) => {
+        event.preventDefault();
+        fetch('http://127.0.0.1:5000/api/bugs/create', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ user: user, description: description })
+        })
+        .then(console.log("done"))
+        .then(response => console.log(response))
+        // .then(response => response.json())
+        // .then(data => console.log(data))
+        // .catch(error => console.error(error))
+    };
+
     return (
         <>  
             <center>
@@ -50,7 +65,7 @@ class Main extends Component {
 
 
                 {/* drop down list */}
-                <select>
+                <select  value={user} onChange={(event) => setUser(event.target.value)}>
                     <option value="user1">User 1</option>
                     <option value="user2">User 2</option>
                     <option value="user3">User 3</option>
@@ -65,15 +80,16 @@ class Main extends Component {
                     multiline
                     rows={4}
                     variant="filled"
+                    value={description}
+                    onChange={(event) => setDescription(event.target.value)}
                 />
                 <br></br><br></br>
 
                 {/* submit button */}
-                <Button variant="contained">Submit</Button>
+                <Button variant="contained" onClick={sendData}>Submit</Button>
             </center>
         </>
     );
-  }
 }
  
 export default Main;
