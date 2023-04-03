@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, jsonify, request
 import json
 from data.database import *
 
@@ -21,14 +21,15 @@ def init_blueprint(gateway):
         database = get_data()
         # Update information in database
         database[gateway.entry_point.generateUUID()] = {
-            "username" : json_data["username"],
-            "title": json_data["title"],
+            "user" : json_data["user"],
+            # "title": json_data["title"],
             "description": json_data["description"],
-            "comments": []
+            # "comments": []
         }
         set_data(database)
-
-        return "Ok", 200
+        response = database
+        return jsonify(response), 200
+        # return "Ok", 200
     
     # Create a new comment for a specific bug given bug_id
     @blueprint.route("/bugs/<string:bug_id>/comment", methods=["GET"])
