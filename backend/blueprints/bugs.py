@@ -1,7 +1,6 @@
 from flask import Blueprint, request
 import json
 from data.database import *
-import uuid
 
 
 def init_blueprint(gateway):
@@ -10,8 +9,7 @@ def init_blueprint(gateway):
     # Get List of Repsitories
     @blueprint.route("/bugs/", methods=["GET"])
     def index():
-
-        return "Ok", 200
+        return get_data(), 200
     
     # Create a new Repository
     @blueprint.route("/bugs/create", methods=["POST"])
@@ -22,7 +20,7 @@ def init_blueprint(gateway):
 
         database = get_data()
         # Update information in database
-        database[str(uuid.uuid1())] = {
+        database[gateway.entry_point.generateUUID()] = {
             "username" : json_data["username"],
             "title": json_data["title"],
             "description": json_data["description"],
@@ -32,6 +30,7 @@ def init_blueprint(gateway):
 
         return "Ok", 200
     
+    # Create a new comment for a specific bug given bug_id
     @blueprint.route("/bugs/<string:bug_id>/comment", methods=["GET"])
     def index3(bug_id):
          # Load request body data

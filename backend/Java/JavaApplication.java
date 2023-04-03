@@ -1,11 +1,12 @@
 package Java;
 import py4j.GatewayServer;
+import java.util.UUID;
 
 public class JavaApplication {
     private static GatewayServer gatewayServer;
 
-    public int addition(int first, int second) {
-        return first + second;
+    public String generateUUID() {
+        return UUID.randomUUID().toString();
     }
 
     public static void main(String[] args) {
