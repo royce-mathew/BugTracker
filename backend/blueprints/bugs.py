@@ -1,26 +1,52 @@
 from flask import Blueprint, request
 import json
+# from data.database import *
+import uuid
+
 # Initialize Database Here
+
+database = {
+    "1" : {
+        "name": "Fix Bug List",
+        "description": "Fix the entire list of bugs",
+        "username": "Aaveg"
+    },
+
+    "2": {
+        "name": "Add Image Support",
+        "description": "Open Sockets and add support to images",
+        "username": "Shri"
+    },
+
+    "3": {
+        "name": "Add Documentation",
+        "description": "Document Python / Java Code",
+        "username": "Royce"
+    }
+}
 
 def init_blueprint(gateway):
     blueprint = Blueprint("bugs", __name__)
 
     # Get List of Repsitories
-    @blueprint.route("/bugs/", method=["GET"])
+    @blueprint.route("/bugs/", methods=["GET"])
     def index():
-        username = request.args.get("username")
-        print("Listing bugs")
+        return "Ok", 200
     
     # Create a new Repository
     @blueprint.route("/bugs/create", methods=["POST"])
     def index2():
-        # Get Username from args
-        username = request.args.get("username")
-        # Get Json Data
+        # Load request body data
         json_string = request.data.decode("utf-8")
         json_data = json.loads(json_string)
 
-        print(username, json_data)
+        # Update information in database
+        database[str(uuid.uuid4())] = {
+            "username" : json_data["username"],
+            "title": json_data["title"],
+            "desc": json_data["desc"],
+        }
+
         return "Ok", 200
     
     return blueprint

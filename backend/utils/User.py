@@ -13,7 +13,7 @@ class User:
     # initialize the User
     def __init__(self, name: str) -> None:
         self.name = name
-        self.bugs = {}
+        self.bugs = []
         self.all_info = {"name": self.name, "bugs": self.bugs}
 
     # creates a bug with its name and description
