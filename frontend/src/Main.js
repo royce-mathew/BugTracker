@@ -1,4 +1,5 @@
 import React, { Component, useState } from "react";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Toolbar from '@mui/material/Toolbar';
@@ -6,6 +7,8 @@ import List from '@mui/material/List';
 import Drawer from '@mui/material/Drawer';
 import Divider from '@mui/material/Divider';
 import { ListItemButton, ListItemText } from "@mui/material";
+import BugLogs from "./BugLogs";
+import About from "./About";
 
 function Main() {
     const [user, setUser] = useState('user1')
@@ -44,25 +47,25 @@ function Main() {
                 >
                     <Toolbar />
                     <Divider />
+
                     <List>
 
-                    <ListItemButton>
+                    <ListItemButton component={Link} to="/new-bug">
                         <ListItemText primary="New Bug" />
                     </ListItemButton>
 
-                    <ListItemButton>
+                    <ListItemButton component={Link} to="/bug-logs">
                         <ListItemText primary="Bug Logs" />
                     </ListItemButton>
 
                     <ListItemButton>
                         <ListItemText primary="About" />
                     </ListItemButton>
-
                     </List>
                 </Drawer>
+
                     <Toolbar />
-
-
+            
                 {/* drop down list */}
                 <select  value={user} onChange={(event) => setUser(event.target.value)}>
                     <option value="user1">User 1</option>
@@ -70,7 +73,7 @@ function Main() {
                     <option value="user3">User 3</option>
                 </select>
                 
-                <br></br><br></br>
+                <br /><br />
 
                 {/* text box */}
                 <TextField
@@ -82,11 +85,18 @@ function Main() {
                     value={description}
                     onChange={(event) => setDescription(event.target.value)}
                 />
-                <br></br><br></br>
+                <br /><br />
 
                 {/* submit button */}
                 <Button variant="contained" onClick={sendData}>Submit</Button>
             </center>
+
+            
+            <Routes>
+                <Route path="/new-bug" />
+                <Route path="/bug-logs" component={BugLogs} />
+                <Route path="/about" component={About} />
+            </Routes>
         </>
     );
 }
