@@ -1,5 +1,5 @@
 import React, { Component, useState } from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { Route, Routes, Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Toolbar from '@mui/material/Toolbar';
@@ -27,7 +27,20 @@ function Main() {
         .catch(error => console.error(error))
     };
 
+
+    const renderRouteComponent = () => {
+        switch(activeRoute) {
+            case 'bug-logs':
+                return <BugLogs />
+            case 'about':
+                return <About />
+            default:
+                return null;
+        }
+    }
+
     return (
+
         <>  
             <center>
                 <h1>Bug Tracker</h1>
@@ -58,7 +71,7 @@ function Main() {
                         <ListItemText primary="Bug Logs" />
                     </ListItemButton>
 
-                    <ListItemButton component={Link} to="about">
+                    <ListItemButton component={Link} to="/about">
                         <ListItemText primary="About" />
                     </ListItemButton>
                     </List>
@@ -91,13 +104,13 @@ function Main() {
                 <Button variant="contained" onClick={sendData}>Submit</Button>
             </center>
 
-
             <Routes>
-                <Route path="/new-bug" />
-                <Route path="/bug-logs" component={BugLogs} />
-                <Route path="/about" component={About} />
+                <Route path="/new-bug" element={<div />} />
+                <Route path="/bug-logs" element={<BugLogs />} />
+                <Route path="/about" element={<About />} />
             </Routes>
         </>
+
     );
 }
 
