@@ -6,4 +6,4 @@ def get_data():
 
 def set_data(new_dict):
     with open("data/data.json", "w") as file:
-        json.dump(new_dict, file)
+        json.dump(new_dict, file, indent=4)

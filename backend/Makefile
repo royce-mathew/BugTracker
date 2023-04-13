@@ -3,6 +3,9 @@ default: run
 
 .PHONY: setup
 setup:
+	@echo "Creating a new virtual environment"
+	python3 -m venv venv
+	. venv/bin/activate
 	@echo "Setting up Pip Requests"
 	pip install -r requirements.txt
 
