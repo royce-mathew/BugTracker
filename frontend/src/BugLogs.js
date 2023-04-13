@@ -1,6 +1,6 @@
 import React from "react";
 
-function BugLogs() {
+export default function BugLogs() {
     return (
         <div>
             <h1>Bug Logs</h1>
@@ -9,4 +9,4 @@ function BugLogs() {
     )
 }
 
-export default BugLogs;
+// export default BugLogs;
