@@ -12,7 +12,6 @@ import About from "./About";
 import NewBug from "./NewBug";
 
 function Main() {
-
     return (
         <>  
             <center>
