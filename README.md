@@ -15,7 +15,11 @@ Clone the github directory by running the following command:
 ```
 git clone https://github.com/OntarioTech-CS-program/w23-csci2020u-project-team21
 ```
-After cloning the repository, run the `make setup` command to automatically setup the requirements for you. To install the requirements for the backend and frontend seperately, go into the specified folder and run the `make setup` command.
+After cloning the repository, run the following command to automatically setup the requirements for you. 
+```
+make setup
+```
+To install the requirements for the backend and frontend seperately, go into the specified folder and run the `make setup` command.
 
 The frontend will be hosted on a remote server on a URL looking similar to `localhost:3000/`.
 The backend will be hosted on a remote server on a URL looking similar to `127.0.0.1:5000/`,
