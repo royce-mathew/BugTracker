@@ -5,11 +5,14 @@ import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Drawer from '@mui/material/Drawer';
 import Divider from '@mui/material/Divider';
+import Box from "@mui/material/Box"
+import ListItem from "@mui/material/ListItem"
 import { ListItemButton, ListItemText } from "@mui/material";
 
 function Main() {
     const [user, setUser] = useState('user1')
     const [description, setDescription] = useState('');
+    const [bugs, setBugs] = useState([]);
 
     const sendData = (event) => {
         event.preventDefault();
@@ -23,6 +26,31 @@ function Main() {
         .then(data => console.log(data))
         .catch(error => console.error(error))
     };
+
+    const getBugs = (event) => {
+      event.preventDefault();
+      // Remove list of bugs
+      
+      fetch('http://127.0.0.1:5000/bugs/', {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+        })
+        .then(response => response.json())
+        .then(data => {
+
+          const updatedBugs = Object.entries(data).map(([key, value]) => ({
+              id: bugs.length + 1,
+              unique_id: key,
+              name: value["name"],
+              username: value["username"],
+              description: value["description"]
+          }));
+          setBugs(updatedBugs)
+         
+          console.log(bugs); 
+        })
+        .catch(error => console.error(error))
+    }
 
     return (
         <>  
@@ -51,7 +79,7 @@ function Main() {
                     </ListItemButton>
 
                     <ListItemButton>
-                        <ListItemText primary="Bug Logs" />
+                        <ListItemText primary="Bug Logs" onClick={getBugs} />
                     </ListItemButton>
 
                     <ListItemButton>
@@ -86,7 +114,20 @@ function Main() {
 
                 {/* submit button */}
                 <Button variant="contained" onClick={sendData}>Submit</Button>
-            </center>
+
+                <Box sx={{width: "80%", maxWidth: 360, bgcolor: 'background.paper'}}>
+                  <List href="#bugs-list">
+                    {bugs.map((bug) => (
+                      <>
+                        <Divider variant="inset" component="li" />
+                        <ListItem key={bug.id} alignItems="flex-start">
+                          <ListItemText primary={bug.name || "Undefined Name"} secondary={`ID: ${bug.unique_id}`}/>
+                        </ListItem>
+                      </>
+                    ))} 
+                  </List>
+                </Box>
+          </center>
         </>
     );
 }
