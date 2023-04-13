@@ -7,7 +7,7 @@ setup:
 	python3 -m venv venv
 	. venv/bin/activate
 	@echo "Setting up Pip Requests"
-	pip install -r requirements.txt
+	@pip install -r requirements.txt
 
 .PHONY: run
 run:
