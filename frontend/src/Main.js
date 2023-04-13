@@ -58,7 +58,7 @@ function Main() {
                         <ListItemText primary="Bug Logs" />
                     </ListItemButton>
 
-                    <ListItemButton>
+                    <ListItemButton component={Link} to="about">
                         <ListItemText primary="About" />
                     </ListItemButton>
                     </List>
@@ -91,7 +91,7 @@ function Main() {
                 <Button variant="contained" onClick={sendData}>Submit</Button>
             </center>
 
-            
+
             <Routes>
                 <Route path="/new-bug" />
                 <Route path="/bug-logs" component={BugLogs} />
