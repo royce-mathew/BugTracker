@@ -1,6 +1,7 @@
 import React, { Component, useState } from "react";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
 
 
 export default function NewBug() {
@@ -23,49 +24,51 @@ export default function NewBug() {
 
     return (
         <>
-            <center>
+            <Box className="newBug">
                 {/* <div style= {{ marginTop: '-70px', marginRight: '-180px'}}>
                 </div> */}
-                    <h1> Fill Out a Bug, and We'll Get Back to You Soon! </h1>
+                <Box className="newBugContainer" sx={{backgroundColor: "primary.100"}}>
+                    <h1 className="newBugTitle"> Report A Bug </h1>
 
-                <TextField
-                    id="user"
-                    placeholder="Team member"
-                    variant="filled"
-                    value={user}
-                    required
-                    onChange={(event) => setUser(event.target.value)}
-                />
+                    <TextField
+                        id="user"
+                        placeholder="Team member"
+                        variant="filled"
+                        className="newBugInput"
+                        value={user}
+                        required
+                        onChange={(event) => setUser(event.target.value)}
+                    />
 
-                <br /><br />
 
-                <TextField
-                    id="bug-title"
-                    placeholder="What is the bug?"
-                    variant="filled"
-                    value={title}
-                    required
-                    onChange={(event) => setTitle(event.target.value)}
-                />
-                
-                <br /><br />
+                    <TextField
+                        id="bug-title"
+                        placeholder="What is the bug?"
+                        variant="filled"
+                        className="newBugInput"
+                        value={title}
+                        required
+                        onChange={(event) => setTitle(event.target.value)}
+                    />
+                    
 
-                {/* text box */}
-                <TextField
-                    id="bug-description"
-                    placeholder="Enter a short description of the bug..."
-                    multiline
-                    rows={4}
-                    variant="filled"
-                    value={description}
-                    required
-                    onChange={(event) => setDescription(event.target.value)}
-                />
-                <br /><br />
+                    {/* text box */}
+                    <TextField
+                        id="bug-description"
+                        placeholder="Enter a short description of the bug..."
+                        multiline
+                        rows={4}
+                        variant="filled"
+                        className="newBugInput"
+                        value={description}
+                        required
+                        onChange={(event) => setDescription(event.target.value)}
+                    />
 
-                {/* submit button */}
-                <Button variant="contained" onClick={sendData}>Submit</Button>
-            </center>
+                    {/* submit button */}
+                    <Button variant="contained" onClick={sendData} size="large" sx={{width: '70%'}}>Submit</Button>
+                </Box>
+            </Box>
         </>
     )
 }

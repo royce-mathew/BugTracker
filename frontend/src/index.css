@@ -1,0 +1,147 @@
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.homePageContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1000px;
+    padding: 20px;
+    border-radius: 10px;
+    gap: 4vh;
+    /* border: 4px double lightgray;s */
+    box-shadow: 0px 0px 40px rgba(0,0,0,1);
+}
+
+.homeTitle{
+    display: flex;
+    width: 70%;
+    justify-content: center;
+    padding: 15px;
+    background-color: transparent;
+    margin: 0px;
+    /* border-radius: 7px; */
+    border: 0px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    border-style: solid;
+    color:white;
+    margin-top: 1vh;
+    color: #8531c5;
+}
+
+.Home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+}
+
+.homeContent{
+    display: flex;
+    justify-content: center;
+}
+
+.homeContent .column{
+    padding: 10px;
+}
+
+.homeContent p{
+    text-align: center;
+    margin-top: 2vh;
+}
+
+.homeContent h2{
+    text-align: center;
+    
+}
+
+.homeContent h3{
+    text-align: center;
+    color: #8531c5;    
+}
+
+
+
+.newBugContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 800px;
+    padding: 20px;
+    border-radius: 10px;
+    gap: 4vh;
+    /* border: 4px double lightgray;s */
+    box-shadow: 0px 0px 40px rgba(0,0,0,1);
+}
+
+.newBugInput {
+    width: 100%;
+}
+
+.newBugTitle{
+    display: flex;
+    width: 70%;
+    justify-content: center;
+    padding: 15px;
+    background-color: transparent;
+    margin: 0px;
+    /* border-radius: 7px; */
+    border: 0px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    border-style: solid;
+    color:white;
+    margin-top: 1vh;
+}
+
+.newBug {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.aboutUsHeader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0px;
+    border-bottom: 2px solid lightgray;
+    height: 100px;
+}
+
+.aboutUsContent{
+    display: flex;
+    width: 100%;
+}
+
+.aboutUsContent p{
+    text-align: center;
+    margin-top: 10vh;
+    font-size: 24px;
+    padding: 10px;
+}
+
+.aboutUsContent h3{
+    text-align: center;
+    margin-top: 1vh;
+}
+
+.aboutUsContent .column{
+    width: calc(100% / 3);
+    height: calc(100vh - 100px)
+}
+
+.aboutUsContent h2{
+    text-align: center;
+    margin-top: 1vh;
+    font-size: 30px;
+}
+
+.aboutUsContent .column:nth-child(2n) {
+    background-color: #191919;
+}

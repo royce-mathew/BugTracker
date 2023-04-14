@@ -11,6 +11,8 @@ import Box from "@mui/material/Box"
 import BugLogs from "./BugLogs";
 import About from "./About";
 import NewBug from "./NewBug";
+import Home from "./Home"
+import { Margin } from "@mui/icons-material";
 
 const drawerWidth = 200;
 
@@ -31,14 +33,18 @@ function Main() {
                     variant="permanent"
                     anchor="left"
                 >
-                    <Toolbar>
-                        <Typography variant="h6" noWrap component="div">
+                    <Toolbar sx={{px: "16px !important"}}>
+                        <Typography variant="h5" noWrap component="div" color={"lightblue"} >
                             Bug Tracker
                         </Typography>
                     </Toolbar>
                     <Divider />
 
                     <List>
+
+                    <ListItemButton component={Link} to="/home">
+                        <ListItemText primary="Home" />
+                    </ListItemButton>
 
                     <ListItemButton component={Link} to="/new-bug">
                         <ListItemText primary="New Bug" />
@@ -54,12 +60,12 @@ function Main() {
                     </List>
 
                 </Drawer>
-                <Toolbar />
-            <Box component="main" sx={{flexGrow: 1, bgcolor: 'background.default', p: 3}}>
+            <Box component="main" sx={{flexGrow: 1, p: 0}}>
                 <Routes>
                     <Route path="/new-bug" element={<NewBug />} />
                     <Route path="/bug-logs" element={<BugLogs />} />
                     <Route path="/about" element={<About />} />
+                    <Route path="/home" element={<Home />} />
                 </Routes>
             </Box>
             </Box>
