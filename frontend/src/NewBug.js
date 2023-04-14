@@ -5,7 +5,8 @@ import TextField from '@mui/material/TextField';
 
 export default function NewBug() {
 
-    const [user, setUser] = useState('user1')
+    const [user, setUser] = useState('')
+    const [title, setTitle] = useState('')
     const [description, setDescription] = useState('');
 
     const sendData = (event) => {
@@ -13,7 +14,7 @@ export default function NewBug() {
         fetch('http://127.0.0.1:5000/bugs/create', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ user: user, description: description }),
+            body: JSON.stringify({ user: user, title: title, description: description }),
             // credentials: 'include'
         })
         .then(response => response.json())
@@ -24,12 +25,30 @@ export default function NewBug() {
     return (
         <>
             <center>
-                {/* drop down list */}
+                {/* drop down list
                 <select  value={user} onChange={(event) => setUser(event.target.value)}>
                     <option value="user1">User 1</option>
                     <option value="user2">User 2</option>
                     <option value="user3">User 3</option>
-                </select>
+                </select> */}
+
+                <TextField
+                    id="user"
+                    placeholder="Team member"
+                    variant="filled"
+                    value={user}
+                    onChange={(event) => setUser(event.target.value)}
+                />
+
+                <br /><br />
+
+                <TextField
+                    id="bug-title"
+                    placeholder="What is the bug?"
+                    variant="filled"
+                    value={title}
+                    onChange={(event) => setTitle(event.target.value)}
+                />
                 
                 <br /><br />
 
