@@ -33,6 +33,7 @@ export default function NewBug() {
                     placeholder="Team member"
                     variant="filled"
                     value={user}
+                    required
                     onChange={(event) => setUser(event.target.value)}
                 />
 
@@ -43,6 +44,7 @@ export default function NewBug() {
                     placeholder="What is the bug?"
                     variant="filled"
                     value={title}
+                    required
                     onChange={(event) => setTitle(event.target.value)}
                 />
                 
@@ -56,6 +58,7 @@ export default function NewBug() {
                     rows={4}
                     variant="filled"
                     value={description}
+                    required
                     onChange={(event) => setDescription(event.target.value)}
                 />
                 <br /><br />
