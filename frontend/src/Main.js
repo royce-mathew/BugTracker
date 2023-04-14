@@ -1,7 +1,7 @@
 import React, { Component, useState } from "react";
 import { Route, Routes, Link } from "react-router-dom";
 
-import { ListItemButton, ListItemText } from "@mui/material";
+import { ListItemButton, ListItemText, Typography } from "@mui/material";
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Drawer from '@mui/material/Drawer';
@@ -15,7 +15,6 @@ function Main() {
     return (
         <>  
             <center>
-                <h1>Bug Tracker</h1>
                 {/* drawer */}
                 <Drawer
                     sx={{
@@ -29,7 +28,11 @@ function Main() {
                     variant="permanent"
                     anchor="left"
                 >
-                    <Toolbar />
+                    <Toolbar>
+                        <Typography variant="h6" noWrap component="div">
+                            Bug Tracker
+                        </Typography>
+                    </Toolbar>
                     <Divider />
 
                     <List>
@@ -37,7 +40,7 @@ function Main() {
                     <ListItemButton component={Link} to="/new-bug">
                         <ListItemText primary="New Bug" />
                     </ListItemButton>
-
+                    
                     <ListItemButton component={Link} to="/bug-logs">
                         <ListItemText primary="Bug Logs" />
                     </ListItemButton>
