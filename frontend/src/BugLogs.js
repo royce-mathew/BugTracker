@@ -3,11 +3,14 @@ import List from "@mui/material/List"
 import Box from "@mui/material/Box"
 import Button from "@mui/material/Button"
 import Divider from "@mui/material/Divider"
-import { ListItem, ListItemText } from "@mui/material"
+import { Accordion, AccordionDetails, AccordionSummary, ListItem, ListItemText } from "@mui/material"
 import RefreshIcon from '@mui/icons-material/Refresh'
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
 export default function BugLogs() {
   const [bugs, setBugs] = useState([]);
+  const [expanded, setExpanded] = useState(false)
 
   const getBugs = (event) => {
     if (event) {event.preventDefault();}
@@ -30,6 +33,10 @@ export default function BugLogs() {
       .catch(error => console.error(error))
   };
 
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  }
+
   useEffect(() => {
     getBugs()
   }, []); // Empty dependency array means function only runs once on amount
@@ -37,19 +44,64 @@ export default function BugLogs() {
   return (
     <div>
       <h1>Bug Logs</h1>
-      <Box sx={{ width: "80%", maxWidth: 360, bgcolor: 'background.paper' }}>
-        <List href="#bugs-list">
+      <Button variant="contained" onClick={getBugs} startIcon={<RefreshIcon />}>Refresh</Button>
+      <br/><br/>
+      
+      <Box sx={{ width: "100%", maxWidth: 800, bgcolor: 'background.paper' }}>
+      {bugs.map((bug) => (
+        <Accordion expanded={expanded === bug.unique_id} onChange={handleChange(bug.unique_id)}>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            id={bug.id}>
+              <Typography sx={{width: '50%', flexShrink: 0}} align="left">
+                {bug.name || "Undefined Name"}
+              </Typography>
+              <Typography sx={{color: 'text.secondary'}}>
+                {bug.username || "Undefined Author"}
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails align="left" sx={{pl : '2rem'}}>
+              <Typography sx={{display: 'inline'}} color='text.primary' >
+                Unique ID 
+              </Typography>
+              <Typography sx={{display: 'inline'}} color='text.secondary'>
+                :  {bug.unique_id}
+              </Typography>
+              <br/>
+
+              <Typography sx={{display: 'inline'}} color='text.primary'>
+                Description
+              </Typography>
+              <Typography sx={{display: 'inline'}} color='text.secondary'>
+                :  {bug.description}
+              </Typography>
+
+            </AccordionDetails>
+        </Accordion>
+      ))}
+        {/* <List>
           {bugs.map((bug) => (
             <>
               <Divider variant="inset" component="li" />
               <ListItem key={bug.id} alignItems="flex-start">
-                <ListItemText primary={bug.name || "Undefined Name"} secondary={`ID: ${bug.unique_id}`} />
+                <ListItemText primary={bug.name || "Undefined Name"} secondary={
+                  <React.Fragment>
+                    <Typography sx={{display: 'inline'}}
+                      component="span"
+                      variant="body2"
+                      color='text.primary'
+                    >
+                      ID: 
+                    </Typography> 
+                    {bug.unique_id}
+
+                  </React.Fragment>
+                  } />
               </ListItem>
             </>
           ))}
-        </List>
+        </List> */}
       </Box>
-      <Button variant="contained" onClick={getBugs} startIcon={<RefreshIcon />}>Refresh</Button>
     </div>
   )
 }
