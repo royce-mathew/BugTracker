@@ -24,9 +24,9 @@ export default function NewBug() {
     return (
         <>
             <center>
-                <div style= {{ marginTop: '-70px', marginRight: '-180px'}}>
+                {/* <div style= {{ marginTop: '-70px', marginRight: '-180px'}}>
+                </div> */}
                     <h1> Fill Out a Bug, and We'll Get Back to You Soon! </h1>
-                </div>
 
                 <TextField
                     id="user"

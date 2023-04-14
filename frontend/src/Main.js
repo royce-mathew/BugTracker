@@ -6,22 +6,25 @@ import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Drawer from '@mui/material/Drawer';
 import Divider from '@mui/material/Divider';
+import Box from "@mui/material/Box"
 
 import BugLogs from "./BugLogs";
 import About from "./About";
 import NewBug from "./NewBug";
 
+const drawerWidth = 200;
+
 function Main() {
     return (
         <>  
-            <center>
+            <Box sx={{display: 'flex'}}>
                 {/* drawer */}
                 <Drawer
                     sx={{
-                    width: 200,
+                    width: drawerWidth,
                     flexShrink: 0,
                     '& .MuiDrawer-paper': {
-                        width: 200,
+                        width: drawerWidth,
                         boxSizing: 'border-box',
                     },
                     }}
@@ -52,13 +55,14 @@ function Main() {
 
                 </Drawer>
                 <Toolbar />
-
+            <Box component="main" sx={{flexGrow: 1, bgcolor: 'background.default', p: 3}}>
                 <Routes>
                     <Route path="/new-bug" element={<NewBug />} />
                     <Route path="/bug-logs" element={<BugLogs />} />
                     <Route path="/about" element={<About />} />
                 </Routes>
-            </center>
+            </Box>
+            </Box>
         </>
 
     );
