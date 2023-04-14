@@ -15,7 +15,6 @@ export default function NewBug() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ user: user, title: title, description: description }),
-            // credentials: 'include'
         })
         .then(response => response.json())
         .then(data => console.log(data))
@@ -25,12 +24,9 @@ export default function NewBug() {
     return (
         <>
             <center>
-                {/* drop down list
-                <select  value={user} onChange={(event) => setUser(event.target.value)}>
-                    <option value="user1">User 1</option>
-                    <option value="user2">User 2</option>
-                    <option value="user3">User 3</option>
-                </select> */}
+                <div style= {{ marginTop: '-70px', marginRight: '-180px'}}>
+                    <h1> Fill Out a Bug, and We'll Get Back to You Soon! </h1>
+                </div>
 
                 <TextField
                     id="user"
