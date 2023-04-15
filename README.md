@@ -40,3 +40,7 @@ All Documentation is Available in Postman. `https://www.postman.com/royce-mathew
 - `127.0.0.1:5000/bugs/` Get the main list of bugs in json format
 - `127.0.0.1:5000/bugs/create` Create a new bug
 - `127.0.0.1:5000/bugs/bug_id/comment` Create a new comment.
+
+# How To Run Application
+
+- Clone this repository using the command 
