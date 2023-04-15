@@ -15,7 +15,7 @@ export default function NewBug() {
         fetch('http://127.0.0.1:5000/bugs/create', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ user: user, title: title, description: description }),
+            body: JSON.stringify({title: title, description: description, user: user}),
         })
         .then(response => response.json())
         .then(data => console.log(data))
