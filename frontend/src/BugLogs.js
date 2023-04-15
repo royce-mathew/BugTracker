@@ -42,7 +42,8 @@ export default function BugLogs() {
   }, []); // Empty dependency array means function only runs once on amount
 
   return (
-    <div>
+    <center>
+    <div className="bugLogContainer">
       <h1>Bug Logs</h1>
       <Button variant="contained" onClick={getBugs} startIcon={<RefreshIcon />}>Refresh</Button>
       <br/><br/>
@@ -103,6 +104,7 @@ export default function BugLogs() {
         </List> */}
       </Box>
     </div>
+    </center>
   )
 }
 

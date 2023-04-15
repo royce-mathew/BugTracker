@@ -145,3 +145,8 @@
 .aboutUsContent .column:nth-child(2n) {
     background-color: #191919;
 }
+
+
+.bugLogContainer{
+    margin-top: 10vh;
+}
