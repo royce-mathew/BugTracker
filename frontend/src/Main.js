@@ -42,7 +42,7 @@ function Main() {
 
                     <List>
 
-                    <ListItemButton component={Link} to="/home">
+                    <ListItemButton component={Link} to="/">
                         <ListItemText primary="Home" />
                     </ListItemButton>
 
@@ -65,7 +65,7 @@ function Main() {
                     <Route path="/new-bug" element={<NewBug />} />
                     <Route path="/bug-logs" element={<BugLogs />} />
                     <Route path="/about" element={<About />} />
-                    <Route path="/home" element={<Home />} />
+                    <Route path="/" element={<Home />} />
                 </Routes>
             </Box>
             </Box>
