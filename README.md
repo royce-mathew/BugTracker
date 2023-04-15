@@ -43,4 +43,5 @@ All Documentation is Available in Postman. `https://www.postman.com/royce-mathew
 
 # How To Run Application
 
-- Clone this repository using the command 
+- Clone this repository using the command `git clone https://github.com/OntarioTech-CS-program/w23-csci2020u-project-team21.git`
+- Using your terminal, navigate to 
