@@ -24,7 +24,7 @@ export default function BugLogs() {
         const updatedBugs = Object.entries(data).map(([key, value]) => ({
           id: bugs.length + 1,
           unique_id: key,
-          name: value["name"],
+          title: value["name"],
           username: value["username"],
           description: value["description"]
         }));
@@ -55,7 +55,7 @@ export default function BugLogs() {
             expandIcon={<ExpandMoreIcon />}
             id={bug.id}>
               <Typography sx={{width: '50%', flexShrink: 0}} align="left">
-                {bug.name || "Undefined Name"}
+                {bug.title || "Undefined Name"}
               </Typography>
               <Typography sx={{color: 'text.secondary'}}>
                 {bug.username || "Undefined Author"}
@@ -80,28 +80,6 @@ export default function BugLogs() {
             </AccordionDetails>
         </Accordion>
       ))}
-        {/* <List>
-          {bugs.map((bug) => (
-            <>
-              <Divider variant="inset" component="li" />
-              <ListItem key={bug.id} alignItems="flex-start">
-                <ListItemText primary={bug.name || "Undefined Name"} secondary={
-                  <React.Fragment>
-                    <Typography sx={{display: 'inline'}}
-                      component="span"
-                      variant="body2"
-                      color='text.primary'
-                    >
-                      ID: 
-                    </Typography> 
-                    {bug.unique_id}
-
-                  </React.Fragment>
-                  } />
-              </ListItem>
-            </>
-          ))}
-        </List> */}
       </Box>
     </div>
     </center>
