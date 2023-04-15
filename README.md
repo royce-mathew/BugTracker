@@ -1,6 +1,21 @@
 # Bug Tracker
 The Bug Tracker is a web application that helps users and teams keep track of bugs in the software development process. It allows the user to post information about new bugs and view both resolved and unresolved bugs.
 
+### Home Page
+![Home Page](https://i.imgur.com/KzRfzNa.png)
+
+### File a New Bug
+![New Bug](https://i.imgur.com/EXOqDGR.png)
+
+### View Bugs
+![Bug Log](https://i.imgur.com/kDSi4A4.png)
+
+### About Us
+![About Us](https://i.imgur.com/yrsWX2i.png)
+
+## Link to View Screencapture
+https://drive.google.com/file/d/1FM5ytb4b5nW7zAp5xxr2HFbYgxcGA3ED/view?usp=share_link
+
 # Frameworks and Technologies
 - Flask
 - React App
