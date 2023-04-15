@@ -40,3 +40,12 @@ All Documentation is Available in Postman. `https://www.postman.com/royce-mathew
 - `127.0.0.1:5000/bugs/` Get the main list of bugs in json format
 - `127.0.0.1:5000/bugs/create` Create a new bug
 - `127.0.0.1:5000/bugs/bug_id/comment` Create a new comment.
+
+# How To Run Application
+
+- Clone this repository using the command `git clone https://github.com/OntarioTech-CS-program/w23-csci2020u-project-team21.git`
+- Using the terminal, navigate to the backend directory using commands like `cd backend`
+- Run the command `make`
+- Using your terminal, navigate to the frontend directory using commands such as `cd frontend`
+- Use the command `npm install`
+- To start the web application, use the command `npm start`
