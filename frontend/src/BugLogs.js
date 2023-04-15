@@ -24,7 +24,7 @@ export default function BugLogs() {
         const updatedBugs = Object.entries(data).map(([key, value]) => ({
           id: bugs.length + 1,
           unique_id: key,
-          title: value["name"],
+          title: value["title"],
           username: value["username"],
           description: value["description"]
         }));
