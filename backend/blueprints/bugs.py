@@ -21,15 +21,13 @@ def init_blueprint(gateway):
         database = get_data()
         # Update information in database
         database[gateway.entry_point.generateUUID()] = {
-            "user" : json_data["user"],
-            # "title": json_data["title"],
+            "title": json_data["title"],
             "description": json_data["description"],
-            # "comments": []
+            "username" : json_data["user"],
         }
         set_data(database)
         response = database
         return jsonify(response), 200
-        # return "Ok", 200
     
     # Create a new comment for a specific bug given bug_id
     @blueprint.route("/bugs/<string:bug_id>/comment", methods=["GET"])
