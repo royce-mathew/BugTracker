@@ -20,7 +20,8 @@ function About() {
             <div className="column">
                 <h2>Srivathsan Sivakumar</h2>
                 <h3>{"<Year 2 Computer Science Student>"}</h3>
-                <p>When in doubt, my genius intellect will get you out.</p>
+                <p>Hello Everyone! I'm a second year Computer Science student at OTU and I enjoy learning new frameworks
+                    and technologies!</p>
             </div>
 
             <div className="column">
