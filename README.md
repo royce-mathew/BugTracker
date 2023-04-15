@@ -44,6 +44,8 @@ All Documentation is Available in Postman. `https://www.postman.com/royce-mathew
 # How To Run Application
 
 - Clone this repository using the command `git clone https://github.com/OntarioTech-CS-program/w23-csci2020u-project-team21.git`
+- Using the terminal, navigate to the backend directory using commands like `cd backend`
+- Run the command `make`
 - Using your terminal, navigate to the frontend directory using commands such as `cd frontend`
 - Use the command `npm install`
 - To start the web application, use the command `npm start`
